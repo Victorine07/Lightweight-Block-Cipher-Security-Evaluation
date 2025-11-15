@@ -61,9 +61,9 @@ The project is structured as a four-step pipeline, with each step implemented in
 
 This project is run using Python 3.8 and the following libraries:
 
-Core Libraries: json, os, re, random, subprocess
-Data Science & ML: numpy, pandas, scikit-learn 
-Deep Learning (GNN & MLP): torch, torch_geometric 
+* Core Libraries: json, os, re, random, subprocess
+* Data Science & ML: numpy, pandas, scikit-learn 
+* Deep Learning (GNN & MLP): torch, torch_geometric 
 
 
 
