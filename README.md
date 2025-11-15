@@ -70,9 +70,9 @@ Deep Learning (GNN & MLP): torch, torch_geometric
 
 ## Disclaimer
 
-**This project utilized Large Language Models (LLMs) in its development.** LLMs were used to assist in:
-1.  Creating the formal theory files (`.thy`) for the ciphers from their original Python implementations.
-2.  Developing the data augmentation strategies applied to the JSON (AST) files.
+**This project utilized Large Language Models (LLMs) in its development.** LLMs were used to: 
+1.  Assist in creating the formal theory files (`.thy`) for the ciphers from their original Python implementations.
+2.  Assist in developing the data augmentation strategies applied to the JSON (AST) files.
 3.  Assisting with the model training and tuning process.
 
 
