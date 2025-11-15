@@ -1,0 +1,2419 @@
+{
+  "cipher_variant": "HIGHT_64_128",
+  "nodes": [
+    {
+      "id": 25,
+      "type": "function",
+      "label": "encrypt_iterate",
+      "cryptographic_patterns": {
+        "feistel_network": false,
+        "arx_operation_chains": [],
+        "spn_layers": false,
+        "key_schedule_complexity": 0,
+        "round_function_structure": {},
+        "cryptographic_operation_distribution": {
+          "operation": 24,
+          "modular_operation": 1
+        },
+        "feistel_rounds_detected": 0,
+        "round_structures": []
+      }
+    },
+    {
+      "id": 0,
+      "type": "op",
+      "label": "APPLY",
+      "context": "encrypt_iterate",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 1,
+      "type": "func_name",
+      "label": "(if i \\<ge> 32 then encryption_final_transformation X_i WK else encrypt_iterate (hight_encryption_round i X_i SK) WK SK (i + 1))",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 2,
+      "type": "literal",
+      "label": "",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing",
+      "value": "",
+      "value_type": "string"
+    },
+    {
+      "id": 3,
+      "type": "var",
+      "label": "by",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 4,
+      "type": "var",
+      "label": "pat_completeness",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 5,
+      "type": "var",
+      "label": "auto",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 6,
+      "type": "var",
+      "label": "termination",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 7,
+      "type": "var",
+      "label": "apply",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 8,
+      "type": "op",
+      "label": "APPLY",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 9,
+      "type": "func_name",
+      "label": "relation",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 10,
+      "type": "var",
+      "label": "\"measure",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 11,
+      "type": "op",
+      "label": "LT",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 12,
+      "type": "var",
+      "label": "\\",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 13,
+      "type": "op",
+      "label": "GT",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 14,
+      "type": "var",
+      "label": "lambda",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 15,
+      "type": "op",
+      "label": "SUB",
+      "context": "right_operand",
+      "crypto_role": "modular_operation",
+      "crypto_strength": 2.5,
+      "diffusion_power": 0.0,
+      "nonlinearity": 2.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 16,
+      "type": "op",
+      "label": "APPLY",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 17,
+      "type": "func_name",
+      "label": "(X_i, WK, SK, i)",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 18,
+      "type": "var",
+      "label": ".",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 19,
+      "type": "literal",
+      "label": "32",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing",
+      "value": 32,
+      "value_type": "numeric"
+    },
+    {
+      "id": 20,
+      "type": "var",
+      "label": "i",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 21,
+      "type": "literal",
+      "label": "",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing",
+      "value": "",
+      "value_type": "string"
+    },
+    {
+      "id": 22,
+      "type": "var",
+      "label": "apply",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 23,
+      "type": "var",
+      "label": "auto",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 24,
+      "type": "var",
+      "label": "done",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 51,
+      "type": "function",
+      "label": "decrypt_iterate",
+      "cryptographic_patterns": {
+        "feistel_network": false,
+        "arx_operation_chains": [],
+        "spn_layers": false,
+        "key_schedule_complexity": 0,
+        "round_function_structure": {},
+        "cryptographic_operation_distribution": {
+          "operation": 24,
+          "modular_operation": 1
+        },
+        "feistel_rounds_detected": 0,
+        "round_structures": []
+      }
+    },
+    {
+      "id": 26,
+      "type": "op",
+      "label": "APPLY",
+      "context": "decrypt_iterate",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 27,
+      "type": "func_name",
+      "label": "(if i \\<ge> 32 then decryption_final_transformation X_i WK else decrypt_iterate (hight_decryption_round i X_i SK) WK SK (i + 1))",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 28,
+      "type": "literal",
+      "label": "",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing",
+      "value": "",
+      "value_type": "string"
+    },
+    {
+      "id": 29,
+      "type": "var",
+      "label": "by",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 30,
+      "type": "var",
+      "label": "pat_completeness",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 31,
+      "type": "var",
+      "label": "auto",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 32,
+      "type": "var",
+      "label": "termination",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 33,
+      "type": "var",
+      "label": "apply",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 34,
+      "type": "op",
+      "label": "APPLY",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 35,
+      "type": "func_name",
+      "label": "relation",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 36,
+      "type": "var",
+      "label": "\"measure",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 37,
+      "type": "op",
+      "label": "LT",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 38,
+      "type": "var",
+      "label": "\\",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 39,
+      "type": "op",
+      "label": "GT",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 40,
+      "type": "var",
+      "label": "lambda",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 41,
+      "type": "op",
+      "label": "SUB",
+      "context": "right_operand",
+      "crypto_role": "modular_operation",
+      "crypto_strength": 2.5,
+      "diffusion_power": 0.0,
+      "nonlinearity": 2.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 42,
+      "type": "op",
+      "label": "APPLY",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 43,
+      "type": "func_name",
+      "label": "(X_i, WK, SK, i)",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 44,
+      "type": "var",
+      "label": ".",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 45,
+      "type": "literal",
+      "label": "32",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing",
+      "value": 32,
+      "value_type": "numeric"
+    },
+    {
+      "id": 46,
+      "type": "var",
+      "label": "i",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 47,
+      "type": "literal",
+      "label": "",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing",
+      "value": "",
+      "value_type": "string"
+    },
+    {
+      "id": 48,
+      "type": "var",
+      "label": "apply",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 49,
+      "type": "var",
+      "label": "auto",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 50,
+      "type": "var",
+      "label": "done",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 68,
+      "type": "function",
+      "label": "encrypt_block",
+      "cryptographic_patterns": {
+        "feistel_network": false,
+        "arx_operation_chains": [],
+        "spn_layers": false,
+        "key_schedule_complexity": 0,
+        "round_function_structure": {},
+        "cryptographic_operation_distribution": {
+          "operation": 16
+        },
+        "feistel_rounds_detected": 0,
+        "round_structures": []
+      }
+    },
+    {
+      "id": 52,
+      "type": "op",
+      "label": "LET",
+      "context": "encrypt_block",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 53,
+      "type": "op",
+      "label": "APPLY",
+      "context": "binding_(WK, SK)",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 54,
+      "type": "func_name",
+      "label": "generate_key_schedule_enc",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 55,
+      "type": "var",
+      "label": "block_size",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 56,
+      "type": "var",
+      "label": "key_size",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 57,
+      "type": "var",
+      "label": "initial_keys_list",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 58,
+      "type": "op",
+      "label": "APPLY",
+      "context": "binding_X_0",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 59,
+      "type": "func_name",
+      "label": "encryption_initial_transformation",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 60,
+      "type": "var",
+      "label": "P",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 61,
+      "type": "var",
+      "label": "WK",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 62,
+      "type": "op",
+      "label": "APPLY",
+      "context": "let_body",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 63,
+      "type": "func_name",
+      "label": "encrypt_iterate",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 64,
+      "type": "var",
+      "label": "X_0",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 65,
+      "type": "var",
+      "label": "WK",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 66,
+      "type": "var",
+      "label": "SK",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 67,
+      "type": "literal",
+      "label": "0",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing",
+      "value": 0,
+      "value_type": "numeric"
+    },
+    {
+      "id": 111,
+      "type": "function",
+      "label": "decrypt_block",
+      "cryptographic_patterns": {
+        "feistel_network": false,
+        "arx_operation_chains": [],
+        "spn_layers": false,
+        "key_schedule_complexity": 0,
+        "round_function_structure": {},
+        "cryptographic_operation_distribution": {
+          "operation": 42
+        },
+        "feistel_rounds_detected": 0,
+        "round_structures": []
+      }
+    },
+    {
+      "id": 69,
+      "type": "op",
+      "label": "LT",
+      "context": "decrypt_block",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 70,
+      "type": "op",
+      "label": "LT",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 71,
+      "type": "op",
+      "label": "LT",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 72,
+      "type": "op",
+      "label": "LT",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 73,
+      "type": "op",
+      "label": "LT",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 74,
+      "type": "op",
+      "label": "LT",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 75,
+      "type": "op",
+      "label": "APPLY",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 76,
+      "type": "func_name",
+      "label": "(let (WK, SK) = generate_key_schedule_dec block_size key_size initial_keys_list; X_0 = decryption_initial_transformation C WK in decrypt_iterate X_0 WK SK 0)",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 77,
+      "type": "literal",
+      "label": "",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing",
+      "value": "",
+      "value_type": "string"
+    },
+    {
+      "id": 78,
+      "type": "var",
+      "label": "subsection",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 79,
+      "type": "var",
+      "label": "\\",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 80,
+      "type": "op",
+      "label": "GT",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 81,
+      "type": "var",
+      "label": "open",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 82,
+      "type": "op",
+      "label": "APPLY",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 83,
+      "type": "func_name",
+      "label": "Invertibility",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 84,
+      "type": "var",
+      "label": "lemmas\\",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 85,
+      "type": "op",
+      "label": "GT",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 86,
+      "type": "var",
+      "label": "close",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 87,
+      "type": "op",
+      "label": "APPLY",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 88,
+      "type": "func_name",
+      "label": "subsection",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 89,
+      "type": "var",
+      "label": "\\",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 90,
+      "type": "op",
+      "label": "GT",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 91,
+      "type": "var",
+      "label": "open",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 92,
+      "type": "op",
+      "label": "APPLY",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 93,
+      "type": "func_name",
+      "label": "Round",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 94,
+      "type": "var",
+      "label": "function",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 95,
+      "type": "var",
+      "label": "invertibility",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 96,
+      "type": "var",
+      "label": "lemmas\\",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 97,
+      "type": "op",
+      "label": "GT",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 98,
+      "type": "var",
+      "label": "close",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 99,
+      "type": "op",
+      "label": "APPLY",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 100,
+      "type": "func_name",
+      "label": "section",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 101,
+      "type": "var",
+      "label": "\\",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 102,
+      "type": "op",
+      "label": "GT",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 103,
+      "type": "var",
+      "label": "open",
+      "context": "left_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 104,
+      "type": "op",
+      "label": "APPLY",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 105,
+      "type": "func_name",
+      "label": "Instantiation:",
+      "context": "apply_func",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 106,
+      "type": "var",
+      "label": "HIGHT",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 107,
+      "type": "var",
+      "label": "64/128",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 108,
+      "type": "var",
+      "label": "specialization",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 109,
+      "type": "var",
+      "label": "\\",
+      "context": "apply_arg",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    },
+    {
+      "id": 110,
+      "type": "var",
+      "label": "close>",
+      "context": "right_operand",
+      "crypto_role": "operation",
+      "crypto_strength": 1.0,
+      "diffusion_power": 0.0,
+      "nonlinearity": 0.0,
+      "data_flow_role": "processing"
+    }
+  ],
+  "edges": [
+    {
+      "source": 0,
+      "target": 1,
+      "type": "func"
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "type": "child"
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "type": "child"
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "type": "child"
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "type": "arg",
+      "position": 2
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "type": "child"
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "type": "arg",
+      "position": 3
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "type": "child"
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "type": "arg",
+      "position": 4
+    },
+    {
+      "source": 0,
+      "target": 7,
+      "type": "child"
+    },
+    {
+      "source": 0,
+      "target": 7,
+      "type": "arg",
+      "position": 5
+    },
+    {
+      "source": 0,
+      "target": 8,
+      "type": "child"
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "type": "func"
+    },
+    {
+      "source": 8,
+      "target": 10,
+      "type": "child"
+    },
+    {
+      "source": 8,
+      "target": 10,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 8,
+      "target": 11,
+      "type": "child"
+    },
+    {
+      "source": 11,
+      "target": 12,
+      "type": "child"
+    },
+    {
+      "source": 11,
+      "target": 12,
+      "type": "left"
+    },
+    {
+      "source": 11,
+      "target": 13,
+      "type": "child"
+    },
+    {
+      "source": 13,
+      "target": 14,
+      "type": "child"
+    },
+    {
+      "source": 13,
+      "target": 14,
+      "type": "left"
+    },
+    {
+      "source": 13,
+      "target": 15,
+      "type": "child"
+    },
+    {
+      "source": 15,
+      "target": 16,
+      "type": "child"
+    },
+    {
+      "source": 16,
+      "target": 17,
+      "type": "func"
+    },
+    {
+      "source": 16,
+      "target": 18,
+      "type": "child"
+    },
+    {
+      "source": 16,
+      "target": 18,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 16,
+      "target": 19,
+      "type": "child"
+    },
+    {
+      "source": 16,
+      "target": 19,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 15,
+      "target": 16,
+      "type": "left"
+    },
+    {
+      "source": 15,
+      "target": 20,
+      "type": "child"
+    },
+    {
+      "source": 15,
+      "target": 20,
+      "type": "right"
+    },
+    {
+      "source": 13,
+      "target": 15,
+      "type": "right"
+    },
+    {
+      "source": 11,
+      "target": 13,
+      "type": "right"
+    },
+    {
+      "source": 8,
+      "target": 11,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 8,
+      "target": 21,
+      "type": "child"
+    },
+    {
+      "source": 8,
+      "target": 21,
+      "type": "arg",
+      "position": 2
+    },
+    {
+      "source": 0,
+      "target": 8,
+      "type": "arg",
+      "position": 6
+    },
+    {
+      "source": 0,
+      "target": 22,
+      "type": "child"
+    },
+    {
+      "source": 0,
+      "target": 22,
+      "type": "arg",
+      "position": 7
+    },
+    {
+      "source": 0,
+      "target": 23,
+      "type": "child"
+    },
+    {
+      "source": 0,
+      "target": 23,
+      "type": "arg",
+      "position": 8
+    },
+    {
+      "source": 0,
+      "target": 24,
+      "type": "child"
+    },
+    {
+      "source": 0,
+      "target": 24,
+      "type": "arg",
+      "position": 9
+    },
+    {
+      "source": 25,
+      "target": 0,
+      "type": "contains"
+    },
+    {
+      "source": 26,
+      "target": 27,
+      "type": "func"
+    },
+    {
+      "source": 26,
+      "target": 28,
+      "type": "child"
+    },
+    {
+      "source": 26,
+      "target": 28,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 26,
+      "target": 29,
+      "type": "child"
+    },
+    {
+      "source": 26,
+      "target": 29,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 26,
+      "target": 30,
+      "type": "child"
+    },
+    {
+      "source": 26,
+      "target": 30,
+      "type": "arg",
+      "position": 2
+    },
+    {
+      "source": 26,
+      "target": 31,
+      "type": "child"
+    },
+    {
+      "source": 26,
+      "target": 31,
+      "type": "arg",
+      "position": 3
+    },
+    {
+      "source": 26,
+      "target": 32,
+      "type": "child"
+    },
+    {
+      "source": 26,
+      "target": 32,
+      "type": "arg",
+      "position": 4
+    },
+    {
+      "source": 26,
+      "target": 33,
+      "type": "child"
+    },
+    {
+      "source": 26,
+      "target": 33,
+      "type": "arg",
+      "position": 5
+    },
+    {
+      "source": 26,
+      "target": 34,
+      "type": "child"
+    },
+    {
+      "source": 34,
+      "target": 35,
+      "type": "func"
+    },
+    {
+      "source": 34,
+      "target": 36,
+      "type": "child"
+    },
+    {
+      "source": 34,
+      "target": 36,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 34,
+      "target": 37,
+      "type": "child"
+    },
+    {
+      "source": 37,
+      "target": 38,
+      "type": "child"
+    },
+    {
+      "source": 37,
+      "target": 38,
+      "type": "left"
+    },
+    {
+      "source": 37,
+      "target": 39,
+      "type": "child"
+    },
+    {
+      "source": 39,
+      "target": 40,
+      "type": "child"
+    },
+    {
+      "source": 39,
+      "target": 40,
+      "type": "left"
+    },
+    {
+      "source": 39,
+      "target": 41,
+      "type": "child"
+    },
+    {
+      "source": 41,
+      "target": 42,
+      "type": "child"
+    },
+    {
+      "source": 42,
+      "target": 43,
+      "type": "func"
+    },
+    {
+      "source": 42,
+      "target": 44,
+      "type": "child"
+    },
+    {
+      "source": 42,
+      "target": 44,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 42,
+      "target": 45,
+      "type": "child"
+    },
+    {
+      "source": 42,
+      "target": 45,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 41,
+      "target": 42,
+      "type": "left"
+    },
+    {
+      "source": 41,
+      "target": 46,
+      "type": "child"
+    },
+    {
+      "source": 41,
+      "target": 46,
+      "type": "right"
+    },
+    {
+      "source": 39,
+      "target": 41,
+      "type": "right"
+    },
+    {
+      "source": 37,
+      "target": 39,
+      "type": "right"
+    },
+    {
+      "source": 34,
+      "target": 37,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 34,
+      "target": 47,
+      "type": "child"
+    },
+    {
+      "source": 34,
+      "target": 47,
+      "type": "arg",
+      "position": 2
+    },
+    {
+      "source": 26,
+      "target": 34,
+      "type": "arg",
+      "position": 6
+    },
+    {
+      "source": 26,
+      "target": 48,
+      "type": "child"
+    },
+    {
+      "source": 26,
+      "target": 48,
+      "type": "arg",
+      "position": 7
+    },
+    {
+      "source": 26,
+      "target": 49,
+      "type": "child"
+    },
+    {
+      "source": 26,
+      "target": 49,
+      "type": "arg",
+      "position": 8
+    },
+    {
+      "source": 26,
+      "target": 50,
+      "type": "child"
+    },
+    {
+      "source": 26,
+      "target": 50,
+      "type": "arg",
+      "position": 9
+    },
+    {
+      "source": 51,
+      "target": 26,
+      "type": "contains"
+    },
+    {
+      "source": 52,
+      "target": 53,
+      "type": "child"
+    },
+    {
+      "source": 53,
+      "target": 54,
+      "type": "func"
+    },
+    {
+      "source": 53,
+      "target": 55,
+      "type": "child"
+    },
+    {
+      "source": 53,
+      "target": 55,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 53,
+      "target": 56,
+      "type": "child"
+    },
+    {
+      "source": 53,
+      "target": 56,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 53,
+      "target": 57,
+      "type": "child"
+    },
+    {
+      "source": 53,
+      "target": 57,
+      "type": "arg",
+      "position": 2
+    },
+    {
+      "source": 52,
+      "target": 53,
+      "type": "binding",
+      "var": "(WK, SK)"
+    },
+    {
+      "source": 52,
+      "target": 58,
+      "type": "child"
+    },
+    {
+      "source": 58,
+      "target": 59,
+      "type": "func"
+    },
+    {
+      "source": 58,
+      "target": 60,
+      "type": "child"
+    },
+    {
+      "source": 58,
+      "target": 60,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 58,
+      "target": 61,
+      "type": "child"
+    },
+    {
+      "source": 58,
+      "target": 61,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 52,
+      "target": 58,
+      "type": "binding",
+      "var": "X_0"
+    },
+    {
+      "source": 52,
+      "target": 62,
+      "type": "child"
+    },
+    {
+      "source": 62,
+      "target": 63,
+      "type": "func"
+    },
+    {
+      "source": 62,
+      "target": 64,
+      "type": "child"
+    },
+    {
+      "source": 62,
+      "target": 64,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 62,
+      "target": 65,
+      "type": "child"
+    },
+    {
+      "source": 62,
+      "target": 65,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 62,
+      "target": 66,
+      "type": "child"
+    },
+    {
+      "source": 62,
+      "target": 66,
+      "type": "arg",
+      "position": 2
+    },
+    {
+      "source": 62,
+      "target": 67,
+      "type": "child"
+    },
+    {
+      "source": 62,
+      "target": 67,
+      "type": "arg",
+      "position": 3
+    },
+    {
+      "source": 52,
+      "target": 62,
+      "type": "body"
+    },
+    {
+      "source": 68,
+      "target": 52,
+      "type": "contains"
+    },
+    {
+      "source": 69,
+      "target": 70,
+      "type": "child"
+    },
+    {
+      "source": 70,
+      "target": 71,
+      "type": "child"
+    },
+    {
+      "source": 71,
+      "target": 72,
+      "type": "child"
+    },
+    {
+      "source": 72,
+      "target": 73,
+      "type": "child"
+    },
+    {
+      "source": 73,
+      "target": 74,
+      "type": "child"
+    },
+    {
+      "source": 74,
+      "target": 75,
+      "type": "child"
+    },
+    {
+      "source": 75,
+      "target": 76,
+      "type": "func"
+    },
+    {
+      "source": 75,
+      "target": 77,
+      "type": "child"
+    },
+    {
+      "source": 75,
+      "target": 77,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 75,
+      "target": 78,
+      "type": "child"
+    },
+    {
+      "source": 75,
+      "target": 78,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 75,
+      "target": 79,
+      "type": "child"
+    },
+    {
+      "source": 75,
+      "target": 79,
+      "type": "arg",
+      "position": 2
+    },
+    {
+      "source": 74,
+      "target": 75,
+      "type": "left"
+    },
+    {
+      "source": 74,
+      "target": 80,
+      "type": "child"
+    },
+    {
+      "source": 80,
+      "target": 81,
+      "type": "child"
+    },
+    {
+      "source": 80,
+      "target": 81,
+      "type": "left"
+    },
+    {
+      "source": 80,
+      "target": 82,
+      "type": "child"
+    },
+    {
+      "source": 82,
+      "target": 83,
+      "type": "func"
+    },
+    {
+      "source": 82,
+      "target": 84,
+      "type": "child"
+    },
+    {
+      "source": 82,
+      "target": 84,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 80,
+      "target": 82,
+      "type": "right"
+    },
+    {
+      "source": 74,
+      "target": 80,
+      "type": "right"
+    },
+    {
+      "source": 73,
+      "target": 74,
+      "type": "left"
+    },
+    {
+      "source": 73,
+      "target": 85,
+      "type": "child"
+    },
+    {
+      "source": 85,
+      "target": 86,
+      "type": "child"
+    },
+    {
+      "source": 85,
+      "target": 86,
+      "type": "left"
+    },
+    {
+      "source": 85,
+      "target": 87,
+      "type": "child"
+    },
+    {
+      "source": 87,
+      "target": 88,
+      "type": "func"
+    },
+    {
+      "source": 87,
+      "target": 89,
+      "type": "child"
+    },
+    {
+      "source": 87,
+      "target": 89,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 85,
+      "target": 87,
+      "type": "right"
+    },
+    {
+      "source": 73,
+      "target": 85,
+      "type": "right"
+    },
+    {
+      "source": 72,
+      "target": 73,
+      "type": "left"
+    },
+    {
+      "source": 72,
+      "target": 90,
+      "type": "child"
+    },
+    {
+      "source": 90,
+      "target": 91,
+      "type": "child"
+    },
+    {
+      "source": 90,
+      "target": 91,
+      "type": "left"
+    },
+    {
+      "source": 90,
+      "target": 92,
+      "type": "child"
+    },
+    {
+      "source": 92,
+      "target": 93,
+      "type": "func"
+    },
+    {
+      "source": 92,
+      "target": 94,
+      "type": "child"
+    },
+    {
+      "source": 92,
+      "target": 94,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 92,
+      "target": 95,
+      "type": "child"
+    },
+    {
+      "source": 92,
+      "target": 95,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 92,
+      "target": 96,
+      "type": "child"
+    },
+    {
+      "source": 92,
+      "target": 96,
+      "type": "arg",
+      "position": 2
+    },
+    {
+      "source": 90,
+      "target": 92,
+      "type": "right"
+    },
+    {
+      "source": 72,
+      "target": 90,
+      "type": "right"
+    },
+    {
+      "source": 71,
+      "target": 72,
+      "type": "left"
+    },
+    {
+      "source": 71,
+      "target": 97,
+      "type": "child"
+    },
+    {
+      "source": 97,
+      "target": 98,
+      "type": "child"
+    },
+    {
+      "source": 97,
+      "target": 98,
+      "type": "left"
+    },
+    {
+      "source": 97,
+      "target": 99,
+      "type": "child"
+    },
+    {
+      "source": 99,
+      "target": 100,
+      "type": "func"
+    },
+    {
+      "source": 99,
+      "target": 101,
+      "type": "child"
+    },
+    {
+      "source": 99,
+      "target": 101,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 97,
+      "target": 99,
+      "type": "right"
+    },
+    {
+      "source": 71,
+      "target": 97,
+      "type": "right"
+    },
+    {
+      "source": 70,
+      "target": 71,
+      "type": "left"
+    },
+    {
+      "source": 70,
+      "target": 102,
+      "type": "child"
+    },
+    {
+      "source": 102,
+      "target": 103,
+      "type": "child"
+    },
+    {
+      "source": 102,
+      "target": 103,
+      "type": "left"
+    },
+    {
+      "source": 102,
+      "target": 104,
+      "type": "child"
+    },
+    {
+      "source": 104,
+      "target": 105,
+      "type": "func"
+    },
+    {
+      "source": 104,
+      "target": 106,
+      "type": "child"
+    },
+    {
+      "source": 104,
+      "target": 106,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 104,
+      "target": 107,
+      "type": "child"
+    },
+    {
+      "source": 104,
+      "target": 107,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 104,
+      "target": 108,
+      "type": "child"
+    },
+    {
+      "source": 104,
+      "target": 108,
+      "type": "arg",
+      "position": 2
+    },
+    {
+      "source": 104,
+      "target": 109,
+      "type": "child"
+    },
+    {
+      "source": 104,
+      "target": 109,
+      "type": "arg",
+      "position": 3
+    },
+    {
+      "source": 102,
+      "target": 104,
+      "type": "right"
+    },
+    {
+      "source": 70,
+      "target": 102,
+      "type": "right"
+    },
+    {
+      "source": 69,
+      "target": 70,
+      "type": "left"
+    },
+    {
+      "source": 69,
+      "target": 110,
+      "type": "child"
+    },
+    {
+      "source": 69,
+      "target": 110,
+      "type": "right"
+    },
+    {
+      "source": 111,
+      "target": 69,
+      "type": "contains"
+    }
+  ],
+  "functions": [
+    "encrypt_iterate",
+    "decrypt_iterate",
+    "encrypt_block",
+    "decrypt_block"
+  ],
+  "pdv": {
+    "source_file": "HIGHT_64_128.thy",
+    "cipher_family": "Feistel",
+    "cipher_name": "HIGHT",
+    "block_size": 64,
+    "key_size": 128,
+    "rounds": 32,
+    "feistel_structure": {
+      "has_round_function": 0,
+      "has_f_function": 0,
+      "has_enc_round": 0,
+      "has_dec_round": 0,
+      "has_key_schedule": 0,
+      "rotation_diversity": 3,
+      "max_rotation_amount": 8,
+      "rotation_amounts": [
+        8,
+        1,
+        2
+      ],
+      "f_function_complexity": 0,
+      "uses_z_sequence": 0,
+      "left_right_halves": false,
+      "key_schedule_complexity": "simple",
+      "feistel_balance": 0.0
+    },
+    "ops_summary": {
+      "xor_count": 0,
+      "rotl_count": 0,
+      "rotr_count": 0,
+      "add_count": 0,
+      "sub_count": 0,
+      "and_count": 0,
+      "sbox_count": 0,
+      "perm_count": 0,
+      "z_seq_usage": 0,
+      "uses_shift_params": 0
+    }
+  },
+  "unified_pdv": {
+    "block_size": 64,
+    "key_size": 128,
+    "rounds": 32,
+    "is_feistel": 1,
+    "is_arx": 0,
+    "is_spn": 0,
+    "xor_count": 0,
+    "rotl_count": 0,
+    "rotr_count": 0,
+    "add_count": 0,
+    "sub_count": 0,
+    "and_count": 0,
+    "sbox_count": 0,
+    "perm_count": 0,
+    "round_complexity": 0,
+    "rotation_diversity": 3,
+    "max_rotation_amount": 8,
+    "has_round_function": 0,
+    "has_f_function": 0,
+    "has_enc_round": 1,
+    "has_dec_round": 1,
+    "has_key_schedule": 0,
+    "ast_node_count": 112,
+    "ast_edge_count": 197,
+    "function_count": 4,
+    "uses_z_sequence": 0,
+    "uses_shift_params": 0,
+    "uses_sbox": 0,
+    "uses_permutation": 0,
+    "round_function_size": 6,
+    "operations_per_round": 6,
+    "complexity_ratio": 0.1875,
+    "estimated_total_operations": 192,
+    "key_schedule_operations": 3,
+    "encryption_operations": 6,
+    "decryption_operations": 6,
+    "f_function_richness": 0.0,
+    "nonlinearity_density": 0.0,
+    "diffusion_strength": 0.0,
+    "operation_diversity": 0,
+    "crypto_strength_score": 0.0,
+    "cryptographic_pattern_score": 0.0,
+    "data_flow_complexity": 1.7589285714285714,
+    "feistel_balance": 0.0,
+    "key_schedule_complexity": 1.0,
+    "arx_balance_score": 0.0,
+    "sbox_strength": 0.0,
+    "confusion_diffusion_ratio": 0.0,
+    "layer_separation": 0.0,
+    "bidirectional_diffusion": 0.0
+  },
+  "security_score": 6.84,
+  "security_label": "medium"
+}

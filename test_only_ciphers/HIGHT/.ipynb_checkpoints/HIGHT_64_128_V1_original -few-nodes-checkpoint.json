@@ -1,0 +1,811 @@
+{
+  "cipher_variant": "HIGHT_64_128",
+  "nodes": [
+    {
+      "id": 0,
+      "type": "var",
+      "label": "if block_size = 64 \\<and> key_size = 128 then 32\n     else 0",
+      "context": "get_num_rounds"
+    },
+    {
+      "id": 1,
+      "type": "function",
+      "label": "get_num_rounds"
+    },
+    {
+      "id": 2,
+      "type": "var",
+      "label": "if block_size = 64 \\<and> key_size = 128 then 0\n     else 0",
+      "context": "get_delta_array_index"
+    },
+    {
+      "id": 3,
+      "type": "function",
+      "label": "get_delta_array_index"
+    },
+    {
+      "id": 4,
+      "type": "var",
+      "label": "0b10101101",
+      "context": "delta0"
+    },
+    {
+      "id": 5,
+      "type": "function",
+      "label": "delta0"
+    },
+    {
+      "id": 6,
+      "type": "var",
+      "label": "if delta_idx = 0 then bit delta0 (i mod 7)\n      else False",
+      "context": "get_delta_bit_val"
+    },
+    {
+      "id": 7,
+      "type": "function",
+      "label": "get_delta_bit_val"
+    },
+    {
+      "id": 8,
+      "type": "op",
+      "label": "of_int",
+      "context": "list_to_byte",
+      "crypto_role": "operation"
+    },
+    {
+      "id": 9,
+      "type": "var",
+      "label": "foldl (\\<lambda>byte bit.  (byte * 2) + (if bit then 1 else 0) ) 0 lst",
+      "context": "of_int"
+    },
+    {
+      "id": 10,
+      "type": "function",
+      "label": "list_to_byte"
+    },
+    {
+      "id": 11,
+      "type": "var",
+      "label": "word_rotl n x",
+      "context": "rotate_bits_left"
+    },
+    {
+      "id": 12,
+      "type": "function",
+      "label": "rotate_bits_left"
+    },
+    {
+      "id": 13,
+      "type": "op",
+      "label": "XOR",
+      "context": "F_function_0",
+      "crypto_role": "mixing"
+    },
+    {
+      "id": 14,
+      "type": "op",
+      "label": "XOR",
+      "context": "XOR",
+      "crypto_role": "mixing"
+    },
+    {
+      "id": 15,
+      "type": "var",
+      "label": "(rotate_bits_left",
+      "context": "XOR"
+    },
+    {
+      "id": 16,
+      "type": "var",
+      "label": "x 1) (rotate_bits_left x 2)) (rotate_bits_left x 7",
+      "context": "XOR"
+    },
+    {
+      "id": 17,
+      "type": "function",
+      "label": "F_function_0"
+    },
+    {
+      "id": 18,
+      "type": "op",
+      "label": "XOR",
+      "context": "F_function_1",
+      "crypto_role": "mixing"
+    },
+    {
+      "id": 19,
+      "type": "op",
+      "label": "XOR",
+      "context": "XOR",
+      "crypto_role": "mixing"
+    },
+    {
+      "id": 20,
+      "type": "var",
+      "label": "(rotate_bits_left",
+      "context": "XOR"
+    },
+    {
+      "id": 21,
+      "type": "var",
+      "label": "x 3) (rotate_bits_left x 4)) (rotate_bits_left x 6",
+      "context": "XOR"
+    },
+    {
+      "id": 22,
+      "type": "function",
+      "label": "F_function_1"
+    },
+    {
+      "id": 23,
+      "type": "var",
+      "label": "[MK ! 12, MK ! 13, MK ! 14, MK ! 15, MK ! 0, MK ! 1, MK ! 2, MK ! 3]",
+      "context": "whitening_key_generation"
+    },
+    {
+      "id": 24,
+      "type": "function",
+      "label": "whitening_key_generation"
+    },
+    {
+      "id": 25,
+      "type": "var",
+      "label": "if i \\<ge> 128 then []\n     else\n       let delta_i = list_to_byte (rev (take 7 current_s)) in\n       delta_i # constant_generation_rec (i + 1) \n         (current_s @ [((nth current_s (i + 2)) \\<noteq> (nth current_s (i - 1)))])",
+      "context": "constant_generation_rec"
+    },
+    {
+      "id": 26,
+      "type": "function",
+      "label": "constant_generation_rec"
+    },
+    {
+      "id": 27,
+      "type": "var",
+      "label": "constant_generation_rec 0 [False, True, False, True, True, False, True]",
+      "context": "constant_generation"
+    },
+    {
+      "id": 28,
+      "type": "function",
+      "label": "constant_generation"
+    },
+    {
+      "id": 29,
+      "type": "var",
+      "label": "if i \\<ge> 8 then []\n     else\n       let sk_first = map (\\<lambda>j. (MK ! ((j - i) mod 8) + delta ! (16 * i + j)) mod 256) [0..<8] in\n       let sk_second = map (\\<lambda>j. (MK ! ((j - i) mod 8 + 8) + delta ! (16 * i + j + 8)) mod 256) [0..<8] in\n       sk_first @ sk_second @ subkey_generation_rec (i + 1) delta MK",
+      "context": "subkey_generation_rec"
+    },
+    {
+      "id": 30,
+      "type": "function",
+      "label": "subkey_generation_rec"
+    },
+    {
+      "id": 31,
+      "type": "var",
+      "label": "subkey_generation_rec 0 delta MK",
+      "context": "subkey_generation"
+    },
+    {
+      "id": 32,
+      "type": "function",
+      "label": "subkey_generation"
+    },
+    {
+      "id": 33,
+      "type": "op",
+      "label": "LET",
+      "context": "generate_key_schedule_enc",
+      "crypto_role": "operation"
+    },
+    {
+      "id": 34,
+      "type": "function",
+      "label": "generate_key_schedule_enc"
+    },
+    {
+      "id": 35,
+      "type": "op",
+      "label": "LET",
+      "context": "generate_key_schedule_dec",
+      "crypto_role": "operation"
+    },
+    {
+      "id": 36,
+      "type": "function",
+      "label": "generate_key_schedule_dec"
+    },
+    {
+      "id": 37,
+      "type": "var",
+      "label": "[(P ! 0 + WK ! 0) mod 256,\n     P ! 1,\n     xor (P ! 2) (WK ! 1),\n     P ! 3,\n     (P ! 4 + WK ! 2) mod 256,\n     P ! 5,\n     xor (P ! 6) (WK ! 3),\n     P ! 7]",
+      "context": "encryption_initial_transformation"
+    },
+    {
+      "id": 38,
+      "type": "function",
+      "label": "encryption_initial_transformation"
+    },
+    {
+      "id": 39,
+      "type": "var",
+      "label": "[C ! 7,\n     (C ! 0 - WK ! 4) mod 256,\n     C ! 1,\n     xor (C ! 2) (WK ! 5),\n     C ! 3,\n     (C ! 4 - WK ! 6) mod 256,\n     C ! 5,\n     xor (C ! 6) (WK ! 7)]",
+      "context": "decryption_initial_transformation"
+    },
+    {
+      "id": 40,
+      "type": "function",
+      "label": "decryption_initial_transformation"
+    },
+    {
+      "id": 41,
+      "type": "var",
+      "label": "[(X_32 ! 1 + WK ! 4) mod 256,\n     X_32 ! 2,\n     xor (X_32 ! 3) (WK ! 5),\n     X_32 ! 4,\n     (X_32 ! 5 + WK ! 6) mod 256,\n     X_32 ! 6,\n     xor (X_32 ! 7) (WK ! 7),\n     X_32 ! 0]",
+      "context": "encryption_final_transformation"
+    },
+    {
+      "id": 42,
+      "type": "function",
+      "label": "encryption_final_transformation"
+    },
+    {
+      "id": 43,
+      "type": "var",
+      "label": "[(X_32 ! 0 - WK ! 0) mod 256,\n     X_32 ! 1,\n     xor (X_32 ! 2) (WK ! 1),\n     X_32 ! 3,\n     (X_32 ! 4 - WK ! 2) mod 256,\n     X_32 ! 5,\n     xor (X_32 ! 6) (WK ! 3),\n     X_32 ! 7]",
+      "context": "decryption_final_transformation"
+    },
+    {
+      "id": 44,
+      "type": "function",
+      "label": "decryption_final_transformation"
+    },
+    {
+      "id": 45,
+      "type": "var",
+      "label": "[xor (X_i ! 7) ((F_function_0 (X_i ! 6) + SK ! (4 * i + 3)) mod 256),\n     X_i ! 0,\n     (X_i ! 1 + (xor (F_function_1 (X_i ! 0)) (SK ! (4 * i)))) mod 256,\n     X_i ! 2,\n     xor (X_i ! 3) ((F_function_0 (X_i ! 2) + SK ! (4 * i + 1)) mod 256),\n     X_i ! 4,\n     (X_i ! 5 + (xor (F_function_1 (X_i ! 4)) (SK ! (4 * i + 2)))) mod 256,\n     X_i ! 6]",
+      "context": "hight_encryption_round"
+    },
+    {
+      "id": 46,
+      "type": "function",
+      "label": "hight_encryption_round"
+    },
+    {
+      "id": 47,
+      "type": "var",
+      "label": "[X_i ! 1,\n     (X_i ! 2 - (xor (F_function_1 (X_i ! 1)) (SK ! (4 * i + 3)))) mod 256,\n     X_i ! 3,\n     xor (X_i ! 4) ((F_function_0 (X_i ! 3) + SK ! (4 * i + 2)) mod 256),\n     X_i ! 5,\n     (X_i ! 6 - (xor (F_function_1 (X_i ! 5)) (SK ! (4 * i + 1)))) mod 256,\n     X_i ! 7,\n     xor (X_i ! 0) ((F_function_0 (X_i ! 7) + SK ! (4 * i)) mod 256)]",
+      "context": "hight_decryption_round"
+    },
+    {
+      "id": 48,
+      "type": "function",
+      "label": "hight_decryption_round"
+    },
+    {
+      "id": 49,
+      "type": "var",
+      "label": "if i \\<ge> 32 then encryption_final_transformation X_i WK\n     else encrypt_iterate (hight_encryption_round i X_i SK) WK SK (i + 1)",
+      "context": "encrypt_iterate"
+    },
+    {
+      "id": 50,
+      "type": "function",
+      "label": "encrypt_iterate"
+    },
+    {
+      "id": 51,
+      "type": "var",
+      "label": "if i \\<ge> 32 then decryption_final_transformation X_i WK\n     else decrypt_iterate (hight_decryption_round i X_i SK) WK SK (i + 1)",
+      "context": "decrypt_iterate"
+    },
+    {
+      "id": 52,
+      "type": "function",
+      "label": "decrypt_iterate"
+    },
+    {
+      "id": 53,
+      "type": "op",
+      "label": "LET",
+      "context": "encrypt_block",
+      "crypto_role": "operation"
+    },
+    {
+      "id": 54,
+      "type": "function",
+      "label": "encrypt_block"
+    },
+    {
+      "id": 55,
+      "type": "op",
+      "label": "LET",
+      "context": "decrypt_block",
+      "crypto_role": "operation"
+    },
+    {
+      "id": 56,
+      "type": "function",
+      "label": "decrypt_block"
+    },
+    {
+      "id": 57,
+      "type": "var",
+      "label": "64",
+      "context": "invertibility"
+    },
+    {
+      "id": 58,
+      "type": "function",
+      "label": "invertibility"
+    },
+    {
+      "id": 59,
+      "type": "var",
+      "label": "128",
+      "context": "key_size_64_128"
+    },
+    {
+      "id": 60,
+      "type": "function",
+      "label": "key_size_64_128"
+    },
+    {
+      "id": 61,
+      "type": "var",
+      "label": "8",
+      "context": "word_size_64_128"
+    },
+    {
+      "id": 62,
+      "type": "function",
+      "label": "word_size_64_128"
+    },
+    {
+      "id": 63,
+      "type": "var",
+      "label": "get_num_rounds block_size_64_128 key_size_64_128",
+      "context": "num_rounds_64_128"
+    },
+    {
+      "id": 64,
+      "type": "function",
+      "label": "num_rounds_64_128"
+    },
+    {
+      "id": 65,
+      "type": "var",
+      "label": "encrypt_block block_size_64_128 key_size_64_128 plaintext initial_keys",
+      "context": "encrypt_64_128"
+    },
+    {
+      "id": 66,
+      "type": "function",
+      "label": "encrypt_64_128"
+    },
+    {
+      "id": 67,
+      "type": "var",
+      "label": "decrypt_block block_size_64_128 key_size_64_128 ciphertext initial_keys",
+      "context": "decrypt_64_128"
+    },
+    {
+      "id": 68,
+      "type": "function",
+      "label": "decrypt_64_128"
+    },
+    {
+      "id": 69,
+      "type": "var",
+      "label": "generate_key_schedule_enc block_size_64_128 key_size_64_128 initial_keys_list",
+      "context": "generate_key_schedule_enc_64_128"
+    },
+    {
+      "id": 70,
+      "type": "function",
+      "label": "generate_key_schedule_enc_64_128"
+    },
+    {
+      "id": 71,
+      "type": "var",
+      "label": "generate_key_schedule_dec block_size_64_128 key_size_64_128 initial_keys_list",
+      "context": "generate_key_schedule_dec_64_128"
+    },
+    {
+      "id": 72,
+      "type": "function",
+      "label": "generate_key_schedule_dec_64_128"
+    },
+    {
+      "id": 73,
+      "type": "var",
+      "label": "map of_int [0x88, 0xE3, 0x4F, 0x8F, 0x08, 0x17, 0x79, 0xF1, \n                                0xE9, 0xF3, 0x94, 0x37, 0x0A, 0xD4, 0x05, 0x89]",
+      "context": "cancellation"
+    },
+    {
+      "id": 74,
+      "type": "function",
+      "label": "cancellation"
+    },
+    {
+      "id": 75,
+      "type": "var",
+      "label": "map of_int [0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07]",
+      "context": "test_P_64_128"
+    },
+    {
+      "id": 76,
+      "type": "function",
+      "label": "test_P_64_128"
+    },
+    {
+      "id": 77,
+      "type": "var",
+      "label": "map of_int [0xCE, 0x15, 0x95, 0x08, 0x5A, 0x18, 0x8C, 0x28]",
+      "context": "expected_C_64_128"
+    },
+    {
+      "id": 78,
+      "type": "function",
+      "label": "expected_C_64_128"
+    }
+  ],
+  "edges": [
+    {
+      "source": 1,
+      "target": 0,
+      "type": "contains"
+    },
+    {
+      "source": 3,
+      "target": 2,
+      "type": "contains"
+    },
+    {
+      "source": 5,
+      "target": 4,
+      "type": "contains"
+    },
+    {
+      "source": 7,
+      "target": 6,
+      "type": "contains"
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "type": "arg"
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 10,
+      "target": 8,
+      "type": "contains"
+    },
+    {
+      "source": 12,
+      "target": 11,
+      "type": "contains"
+    },
+    {
+      "source": 13,
+      "target": 14,
+      "type": "child"
+    },
+    {
+      "source": 14,
+      "target": 15,
+      "type": "arg"
+    },
+    {
+      "source": 14,
+      "target": 15,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 14,
+      "target": 16,
+      "type": "arg"
+    },
+    {
+      "source": 14,
+      "target": 16,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 13,
+      "target": 14,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 17,
+      "target": 13,
+      "type": "contains"
+    },
+    {
+      "source": 18,
+      "target": 19,
+      "type": "child"
+    },
+    {
+      "source": 19,
+      "target": 20,
+      "type": "arg"
+    },
+    {
+      "source": 19,
+      "target": 20,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 19,
+      "target": 21,
+      "type": "arg"
+    },
+    {
+      "source": 19,
+      "target": 21,
+      "type": "arg",
+      "position": 1
+    },
+    {
+      "source": 18,
+      "target": 19,
+      "type": "arg",
+      "position": 0
+    },
+    {
+      "source": 22,
+      "target": 18,
+      "type": "contains"
+    },
+    {
+      "source": 24,
+      "target": 23,
+      "type": "contains"
+    },
+    {
+      "source": 26,
+      "target": 25,
+      "type": "contains"
+    },
+    {
+      "source": 28,
+      "target": 27,
+      "type": "contains"
+    },
+    {
+      "source": 30,
+      "target": 29,
+      "type": "contains"
+    },
+    {
+      "source": 32,
+      "target": 31,
+      "type": "contains"
+    },
+    {
+      "source": 34,
+      "target": 33,
+      "type": "contains"
+    },
+    {
+      "source": 36,
+      "target": 35,
+      "type": "contains"
+    },
+    {
+      "source": 38,
+      "target": 37,
+      "type": "contains"
+    },
+    {
+      "source": 40,
+      "target": 39,
+      "type": "contains"
+    },
+    {
+      "source": 42,
+      "target": 41,
+      "type": "contains"
+    },
+    {
+      "source": 44,
+      "target": 43,
+      "type": "contains"
+    },
+    {
+      "source": 46,
+      "target": 45,
+      "type": "contains"
+    },
+    {
+      "source": 48,
+      "target": 47,
+      "type": "contains"
+    },
+    {
+      "source": 50,
+      "target": 49,
+      "type": "contains"
+    },
+    {
+      "source": 52,
+      "target": 51,
+      "type": "contains"
+    },
+    {
+      "source": 54,
+      "target": 53,
+      "type": "contains"
+    },
+    {
+      "source": 56,
+      "target": 55,
+      "type": "contains"
+    },
+    {
+      "source": 58,
+      "target": 57,
+      "type": "contains"
+    },
+    {
+      "source": 60,
+      "target": 59,
+      "type": "contains"
+    },
+    {
+      "source": 62,
+      "target": 61,
+      "type": "contains"
+    },
+    {
+      "source": 64,
+      "target": 63,
+      "type": "contains"
+    },
+    {
+      "source": 66,
+      "target": 65,
+      "type": "contains"
+    },
+    {
+      "source": 68,
+      "target": 67,
+      "type": "contains"
+    },
+    {
+      "source": 70,
+      "target": 69,
+      "type": "contains"
+    },
+    {
+      "source": 72,
+      "target": 71,
+      "type": "contains"
+    },
+    {
+      "source": 74,
+      "target": 73,
+      "type": "contains"
+    },
+    {
+      "source": 76,
+      "target": 75,
+      "type": "contains"
+    },
+    {
+      "source": 78,
+      "target": 77,
+      "type": "contains"
+    }
+  ],
+  "functions": [
+    "get_num_rounds",
+    "get_delta_array_index",
+    "delta0",
+    "get_delta_bit_val",
+    "list_to_byte",
+    "rotate_bits_left",
+    "F_function_0",
+    "F_function_1",
+    "whitening_key_generation",
+    "constant_generation_rec",
+    "constant_generation",
+    "subkey_generation_rec",
+    "subkey_generation",
+    "generate_key_schedule_enc",
+    "generate_key_schedule_dec",
+    "encryption_initial_transformation",
+    "decryption_initial_transformation",
+    "encryption_final_transformation",
+    "decryption_final_transformation",
+    "hight_encryption_round",
+    "hight_decryption_round",
+    "encrypt_iterate",
+    "decrypt_iterate",
+    "encrypt_block",
+    "decrypt_block",
+    "invertibility",
+    "key_size_64_128",
+    "word_size_64_128",
+    "num_rounds_64_128",
+    "encrypt_64_128",
+    "decrypt_64_128",
+    "generate_key_schedule_enc_64_128",
+    "generate_key_schedule_dec_64_128",
+    "cancellation",
+    "test_P_64_128",
+    "expected_C_64_128"
+  ],
+  "pdv": {
+    "source_file": "HIGHT_64_128.thy",
+    "cipher_family": "Feistel",
+    "cipher_name": "HIGHT",
+    "block_size": 64,
+    "key_size": 128,
+    "rounds": 32,
+    "feistel_structure": {
+      "has_round_function": 0,
+      "has_f_function": 0,
+      "feistel_swaps": 0,
+      "rotation_diversity": 0,
+      "f_function_complexity": 2,
+      "round_application_count": 0,
+      "max_rotation_amount": 0,
+      "gcd_rotations": 0
+    },
+    "ops_summary": {
+      "rotl_count": 0,
+      "rotr_count": 0,
+      "add_count": 0,
+      "sub_count": 0,
+      "xor_count": 20,
+      "and_count": 5,
+      "sbox_count": 0,
+      "perm_count": 0,
+      "z_seq_usage": 0
+    }
+  },
+  "unified_pdv": {
+    "block_size": 64,
+    "key_size": 128,
+    "rounds": 32,
+    "is_feistel": 0,
+    "is_arx": 0,
+    "is_spn": 0,
+    "xor_count": 20,
+    "rotl_count": 0,
+    "rotr_count": 0,
+    "add_count": 0,
+    "sub_count": 0,
+    "and_count": 5,
+    "sbox_count": 0,
+    "perm_count": 0,
+    "round_complexity": 2,
+    "rotation_diversity": 0,
+    "max_rotation_amount": 0,
+    "has_round_function": 0,
+    "has_f_function": 0,
+    "has_enc_round": 0,
+    "has_dec_round": 0,
+    "has_key_schedule": 0,
+    "ast_node_count": 79,
+    "ast_edge_count": 50,
+    "function_count": 36,
+    "uses_z_sequence": 0,
+    "uses_shift_params": 0,
+    "uses_sbox": 0,
+    "uses_permutation": 0
+  },
+  "security_score": 6.84,
+  "security_label": "medium"
+}
